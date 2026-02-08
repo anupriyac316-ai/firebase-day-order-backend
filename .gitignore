@@ -1,0 +1,7 @@
+# Ignore secret keys
+serviceAccountKey.json
+pass.py
+
+# Optional: ignore Python cache files
+__pycache__/
+*.pyc
