@@ -2,8 +2,9 @@ name: Daily Day Order Update
 
 on:
   schedule:
-    - cron: '0 7 * * *'  # Runs every day at 07:00 UTC
-  workflow_dispatch:     # Allows manual trigger
+    # 12:05 AM IST
+    - cron: '35 18 * * *'
+  workflow_dispatch:
 
 jobs:
   run-day-order:
@@ -23,7 +24,7 @@ jobs:
           pip install firebase-admin
 
       - name: Run Day Order Script
-        run: python day_order_update.py
         env:
           GOOGLE_APPLICATION_CREDENTIALS_JSON: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS_JSON }}
           SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+        run: python day_order_update.py
